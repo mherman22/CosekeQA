@@ -24,9 +24,10 @@ public class SplashScreen extends javax.swing.JFrame {
         setUndecorated(true);
 
         jLabel1.setBackground(new java.awt.Color(0, 102, 102));
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\HERMAN MUHEREZA\\Downloads\\LogoMakr-6ZHuKm (1).png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\HERMAN MUHEREZA\\Downloads\\LogoMakr-64Lgnn.png")); // NOI18N
 
         ProgressBar.setForeground(new java.awt.Color(0, 51, 51));
+        ProgressBar.setMaximumSize(new java.awt.Dimension(32767, 2));
 
         cancelx.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cancelx.setForeground(new java.awt.Color(0, 102, 102));
@@ -42,25 +43,25 @@ public class SplashScreen extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(ProgressBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(65, 65, 65)
+                .addGap(70, 70, 70)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addComponent(cancelx)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Percentage)
-                .addGap(157, 157, 157))
+                .addGap(149, 149, 149))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cancelx)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                        .addComponent(cancelx)
+                        .addGap(0, 160, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Percentage)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -78,10 +79,11 @@ public class SplashScreen extends javax.swing.JFrame {
             for (int x = 0; x <= 100; x++) {
                 Thread.sleep(40);
                 splash.ProgressBar.setValue(x);
-                splash.Percentage.setText(Integer.toString(x));
+                splash.Percentage.setText(Integer.toString(x)+"%");
             }
         } catch (InterruptedException e){
-              JOptionPane.showMessageDialog(splash, "Failed for some reason unclear, Do you mind refreshing and trigger the runner again?", "Error",JOptionPane.ERROR_MESSAGE);
+              JOptionPane.showMessageDialog(splash, "Failed for some reason unclear, "
+                      + "Do you mind refreshing and trigger the runner again?", "Error",JOptionPane.ERROR_MESSAGE);
         }
         splash.dispose();
         new LoginPage().setVisible(true);
