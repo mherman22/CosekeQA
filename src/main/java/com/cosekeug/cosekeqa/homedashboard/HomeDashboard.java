@@ -80,6 +80,7 @@ public class HomeDashboard extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
+        setUndecorated(true);
         setResizable(false);
 
         jButton1.setBackground(new java.awt.Color(0, 102, 102));
@@ -160,13 +161,13 @@ public class HomeDashboard extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(sidebar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(144, 144, 144)
+                .addGap(86, 86, 86)
                 .addComponent(filepath, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(89, 89, 89)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addComponent(footer))
         );
 
@@ -180,7 +181,7 @@ public class HomeDashboard extends javax.swing.JFrame {
         
         /** concatenate the filepath_var and the file name which is <p>info</p> to 
              form a full file path, for example <p> C:\Users\HERMAN MUHEREZA\Documents\Batch058\info </p>
-             **/
+        **/
         String file_name = filepath_var + "/info";
         
         if (filepath_var.isEmpty()) {
