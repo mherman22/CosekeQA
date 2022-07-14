@@ -14,7 +14,6 @@ import java.util.logging.Logger;
 
 public class HomeDashboard extends javax.swing.JFrame {
 
-//    public static final String REGEX_PATTERN = "([a-zA-Z]:)?(\\\\\\\\[a-zA-Z0-9_.-]+)+\\\\\\\\?";
     public HomeDashboard() {
         initComponents();
     }
@@ -174,18 +173,19 @@ public class HomeDashboard extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+//  handles the submit button that sends the file path to the monitoring function
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         String filepath_var = filepath.getText();
+        
+        /** concatenate the filepath_var and the file name which is <p>info</p> to 
+             form a full file path, for example <p> C:\Users\HERMAN MUHEREZA\Documents\Batch058\info </p>
+             **/
         String file_name = filepath_var + "/info";
-//        boolean filepath_bool = filepath_var.matches(REGEX_PATTERN);
-//        final String FILE_NAME = "C:/Users/HERMAN MUHEREZA/Documents/Batch057/info";
         
         if (filepath_var.isEmpty()) {
             JOptionPane.showMessageDialog(this, "file path can not be empty!", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
-//            JOptionPane.showMessageDialog(this, "The file path to be monitored is " + filepath_var);
             try {JOptionPane.showMessageDialog(this, "Monitoring has started at " + filepath_var);
                     WatchService watchService = FileSystems.getDefault().newWatchService();
                     Path directory = Paths.get(filepath_var);
@@ -200,12 +200,12 @@ public class HomeDashboard extends javax.swing.JFrame {
 			    WatchEvent.Kind<?> kind = event.kind();
                             
                             if (kind == StandardWatchEventKinds.ENTRY_CREATE) {
-                                new FileReading().readInfoFileData(filepath_var);
+                                new FileReading().readInfoFileData(file_name);
                                 JOptionPane.showMessageDialog(this, "A new file " + fileName + " has been created!");
                             }
                             
                             if (kind == StandardWatchEventKinds.ENTRY_DELETE) {
-                                new FileReading().readInfoFileData(filepath_var);
+//                                new FileReading().readInfoFileData(filepath_var);
 				JOptionPane.showMessageDialog(this, "Something has been deleted!!");
 			    }
 					
