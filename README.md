@@ -24,7 +24,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 17.0.2+8-LTS-86, mixed mode, sharing)
 
 ## Pull Requests? Wanna implement or make an addition or correct something?
 - fork this repository.
-- clone it onto your machine by running `git clone https://github.com/mherman22/CosekeQA.git`.
+- clone it onto your machine by running `git clone https://github.com/your-name/CosekeQA.git`.
 - make your changes and test them to ensure everything perfect.
 - create a branch `git checkout -b branch-name`.
 - commit your changes to your branch using `git add .` and  `git commit -m "commit message"`.
