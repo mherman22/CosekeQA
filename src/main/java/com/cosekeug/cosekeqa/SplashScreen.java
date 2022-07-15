@@ -26,7 +26,9 @@ public class SplashScreen extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(0, 102, 102));
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\HERMAN MUHEREZA\\Downloads\\LogoMakr-64Lgnn.png")); // NOI18N
 
-        ProgressBar.setForeground(new java.awt.Color(0, 51, 51));
+        ProgressBar.setBackground(new java.awt.Color(0, 51, 51));
+        ProgressBar.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        ProgressBar.setForeground(new java.awt.Color(204, 255, 0));
         ProgressBar.setMaximumSize(new java.awt.Dimension(32767, 2));
 
         cancelx.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
