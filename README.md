@@ -28,6 +28,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 17.0.2+8-LTS-86, mixed mode, sharing)
 - make your changes and test them to ensure everything perfect.
 - create a branch `git checkout -b branch-name`.
 - commit your changes to your branch using `git add .` and  `git commit -m "commit message"`.
+- pull from origin to ensure your local repo is in sync with upstream. use `git pull origin branch-name`
 - push your changes using `git push origin branch-name`.
 - create a pull request and give it a proper description stating clearly the changes you have added.
 
