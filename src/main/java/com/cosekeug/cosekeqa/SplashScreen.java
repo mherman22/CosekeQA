@@ -17,7 +17,6 @@ public class SplashScreen extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         ProgressBar = new javax.swing.JProgressBar();
-        cancelx = new javax.swing.JLabel();
         Percentage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -31,10 +30,6 @@ public class SplashScreen extends javax.swing.JFrame {
         ProgressBar.setForeground(new java.awt.Color(204, 255, 0));
         ProgressBar.setMaximumSize(new java.awt.Dimension(32767, 2));
 
-        cancelx.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        cancelx.setForeground(new java.awt.Color(0, 102, 102));
-        cancelx.setText("X");
-
         Percentage.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Percentage.setForeground(new java.awt.Color(0, 102, 102));
         Percentage.setText("%");
@@ -47,9 +42,7 @@ public class SplashScreen extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(70, 70, 70)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                .addComponent(cancelx)
-                .addContainerGap())
+                .addContainerGap(91, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Percentage)
@@ -58,11 +51,7 @@ public class SplashScreen extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(cancelx)
-                        .addGap(0, 160, Short.MAX_VALUE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Percentage)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -123,7 +112,6 @@ public class SplashScreen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Percentage;
     private javax.swing.JProgressBar ProgressBar;
-    private javax.swing.JLabel cancelx;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

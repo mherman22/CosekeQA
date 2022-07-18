@@ -4,6 +4,14 @@
  */
 package com.cosekeug.cosekeqa;
 
+import com.cosekeug.cosekeqa.homedashboard.HomeDashboard;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -222,7 +230,21 @@ public class LoginPage extends javax.swing.JFrame {
     }//GEN-LAST:event_UsernameActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-            JOptionPane.showMessageDialog(this, "username or password can not be empty!", "Error", JOptionPane.ERROR_MESSAGE);
+//            JOptionPane.showMessageDialog(this, "username or password can not be empty!", "Error", JOptionPane.ERROR_MESSAGE);
+        try {
+            Connection Con = DriverManager.getConnection("jdbc:mysql://localhost/infofiledb", "root", "Herman000!");
+            Statement statement = Con.createStatement();
+            String SQL_STRING = "SELECT * FROM logintable where username = '"+Username.getText()+"' and password = '"+Password.getText()+"'";
+            ResultSet resultSet = statement.executeQuery(SQL_STRING);
+            
+            if (resultSet.next()) {
+                new HomeDashboard().setVisible(true);
+                this.dispose();
+            } else
+                JOptionPane.showMessageDialog(this, "wrong username or password", "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_loginButtonActionPerformed
 
     /**
