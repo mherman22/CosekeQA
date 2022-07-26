@@ -223,6 +223,7 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         try {
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             Connection Con = DriverManager.getConnection("jdbc:mysql://localhost/infofiledb", "root", "Herman000!");
             Statement statement = Con.createStatement();
             String SQL_STRING = "SELECT * FROM logintable where username = '"+Username.getText()+"' and password = '"+Password.getText()+"'";
