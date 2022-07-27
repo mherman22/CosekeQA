@@ -1,6 +1,7 @@
 package com.cosekeug.cosekeqa.Table;
 
 
+import com.cosekeug.cosekeqa.LandingPage.LandingPage;
 import com.cosekeug.cosekeqa.homedashboard.HomeDashboard;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -138,7 +140,7 @@ public class ViewTable extends javax.swing.JFrame {
         jLabel3.setText("Search By Date:");
 
         search_by_date.setBackground(new java.awt.Color(0, 102, 102));
-        search_by_date.setText("Search");
+        search_by_date.setText("Search By Date");
         search_by_date.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 search_by_dateActionPerformed(evt);
@@ -246,7 +248,7 @@ public class ViewTable extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//        new LandingPage().setVisible(true);
+        new LandingPage().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -264,8 +266,20 @@ public class ViewTable extends javax.swing.JFrame {
     }//GEN-LAST:event_from_dateKeyPressed
 
     private void search_by_dateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_by_dateActionPerformed
-        if (from_date.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "all date fields must filed!", "Error", JOptionPane.ERROR_MESSAGE);
+        try {
+            dataTable.setModel(new DefaultTableModel(null,new Object[]{"CreatedUserID","CreatedWorkstationName",
+                "CreatedDatetime","ModifiedWorkStationID","ModifiedDateTime","ModifiedUserID","PageCount",
+                "ImageCount","DocumentCount"}));
+            
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            
+            String fromDate = simpleDateFormat.format(from_date.getDate());
+            String toDate = simpleDateFormat.format(to_date.getDate());
+            
+            showFilteredData(fromDate,toDate);
+            
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }//GEN-LAST:event_search_by_dateActionPerformed
 
@@ -314,6 +328,58 @@ public class ViewTable extends javax.swing.JFrame {
             TableRowSorter<DefaultTableModel> tablerowsorter = new TableRowSorter<>(model);
             dataTable.setRowSorter(tablerowsorter);
             tablerowsorter.setRowFilter(RowFilter.regexFilter(str));
+    }
+    
+    public static Connection getConnectionToDB() {
+        Connection con = null;
+        try {
+            con = DriverManager.getConnection("jdbc:mysql://localhost/infofiledb", "root", "Herman000!");
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return con;
+    }
+    
+    public void showFilteredData(String date1, String date2) {
+        Connection con = getConnectionToDB();
+        PreparedStatement preparedStatement;
+        ResultSet resultSet;
+        
+        try {
+            if (date1.equals("") || date2.equals("")) {
+                JOptionPane.showMessageDialog(this, "filter is empty!","Error",JOptionPane.ERROR_MESSAGE);
+                preparedStatement = con.prepareStatement("SELECT CreatedUserID, CreatedWorkstationName,CreatedDatetime,"
+                        + "ModifiedWorkStationID,ModifiedDateTime,ModifiedUserID,PageCount,ImageCount,DocumentCount FROM infofiletable");
+            } else {
+                preparedStatement = con.prepareStatement("SELECT CreatedUserID, CreatedWorkstationName,CreatedDatetime,ModifiedWorkStationID,"
+                        + "ModifiedDateTime,ModifiedUserID,PageCount,ImageCount,DocumentCount FROM infofiletable WHERE ModifiedDateTime BETWEEN ? AND ?");
+                preparedStatement.setString(1, date1);
+                preparedStatement.setString(2, date2);
+            }   
+            
+            resultSet = preparedStatement.executeQuery();
+            DefaultTableModel model = (DefaultTableModel) dataTable.getModel();
+            
+            Object[] row;
+            
+            while (resultSet.next()) {
+                row = new Object[9];
+                row[0] = resultSet.getInt(1);
+                row[1] = resultSet.getString(2);
+                row[2] = resultSet.getString(3);
+                row[3] = resultSet.getString(4);
+                row[4] = resultSet.getString(5);
+                row[5] = resultSet.getString(6);
+                row[6] = resultSet.getString(7);
+                row[7] = resultSet.getString(8);
+                row[8] = resultSet.getString(9);
+                
+                model.addRow(row);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
         
     public static void main(String args[]) {
