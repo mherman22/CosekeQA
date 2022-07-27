@@ -232,6 +232,7 @@ public class LoginPage extends javax.swing.JFrame {
             if (resultSet.next()) {
                 new LandingPage().setVisible(true);
                 this.dispose();
+                JOptionPane.showMessageDialog(this, "Successfully logged in as " + Username.getText());
             } else
                 JOptionPane.showMessageDialog(this, "wrong username or password", "Error", JOptionPane.ERROR_MESSAGE);
         } catch (SQLException ex) {

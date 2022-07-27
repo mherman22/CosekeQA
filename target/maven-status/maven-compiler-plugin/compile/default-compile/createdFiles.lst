@@ -6,6 +6,7 @@ com\cosekeug\cosekeqa\LandingPage\LandingPage$5.class
 com\cosekeug\cosekeqa\LandingPage\LandingPage$4.class
 com\cosekeug\cosekeqa\LoginPage.class
 com\cosekeug\cosekeqa\SplashScreen$1.class
+com\cosekeug\cosekeqa\homedashboard\HomeDashboard$5.class
 com\cosekeug\cosekeqa\LandingPage\LandingPage$2.class
 com\cosekeug\cosekeqa\LandingPage\LandingPage.class
 com\cosekeug\cosekeqa\Database\DatabaseConnectivity.class
