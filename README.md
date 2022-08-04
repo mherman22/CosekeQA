@@ -1,6 +1,6 @@
-# CosekeQA Digitization Projects
+# Monitor File For Changes
 The sole purpose of this tool is to monitor the file changes that occur during scanning, indexing and quality control (using [capture pro](https://www.alarisworld.com/en-us/solutions/software/document-scanning-software/capture-pro-software)). 
-After monitoring the file, it is supposed to read the file and store the data into a database (mysql). The data in the database is therefore used to make reporting of employee performance for those in various projects under **CosekeUG**.
+After monitoring the file, it is supposed to read the file and store the data into a database (mysql). 
 
 ## Tools used in development
 - [Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
@@ -31,6 +31,10 @@ Java HotSpot(TM) 64-Bit Server VM (build 17.0.2+8-LTS-86, mixed mode, sharing)
 - pull from origin to ensure your local repo is in sync with upstream. use `git pull origin branch-name`
 - push your changes using `git push origin branch-name`.
 - create a pull request and give it a proper description stating clearly the changes you have added.
+
+## New Fetures to add
+- Reporting section to handle date filters, name filters, print functionality, send to excel functionality.
+- fix some bugs
 
 ## Created By
 - [mherman22](https://github.com/mherman22)
